@@ -1,0 +1,41 @@
+---
+title: "MT4007 - Homework 1"
+author: "Sam Linderoth"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Past experiences
+
+My past experiences with R and associated packages and programs comes mainly from earlier courses in mathematical statistics at Stockholms universitet, like Statistical theory of inference and Stochastic processes I.
+
+My prior experience with Git/Github are nil, zero, zilch.
+
+## A plot
+
+```{r}
+
+library(ggplot2)
+
+data <- read.csv("skilsmassor2.csv",header=TRUE)
+
+ggplot(data,aes(x=År)) +
+  
+  geom_line( aes(y=Giftermål) ) + labs(title="Marriages in Sweden, 2012-2021", tags="Figure 1: Line plot of marriages") +
+
+  coord_cartesian(clip = "off") +
+    theme(plot.title = element_text(hjust = 0.5),
+          plot.margin = margin(t = 10, r = 10, b = 40, l = 10),
+          plot.tag.position = c(0.2, -0.1)
+          )
+
+
+```
+
+
+https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101L/GiftSkilsmassaTyp/
